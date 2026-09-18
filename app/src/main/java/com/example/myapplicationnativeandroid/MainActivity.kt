@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExposedDropdownMenuDefaults.textFieldColors
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -31,10 +32,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyApplicationNativeAndroidTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+//                    Greeting(
+//                        name = "Android",
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
+                    Components()
                 }
             }
         }
@@ -48,26 +50,38 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
 
         Text(
             text = "Hello $name! Munawer Native",
             modifier = modifier
         )
+
         TextField(
             value = name,
-            onValueChange = {name=it},
+
+            onValueChange = { name = it },
             colors = TextFieldDefaults.colors(
                 focusedIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,
                 unfocusedIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,
                 disabledIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,
             )
         )
+        OutlinedTextField (
+                value = name,
+
+        onValueChange = { name = it },
+        colors = TextFieldDefaults.colors(
+            focusedIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,
+            unfocusedIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,
+            disabledIndicatorColor = androidx.compose.ui.graphics.Color.Transparent,
+        )
+        )
     }
 }
 
 
-@Preview(showBackground = true,showSystemUi = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview() {
     MyApplicationNativeAndroidTheme {
